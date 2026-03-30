@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SISTEMA DE ASISTENCIA PRO</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-slate-950 flex items-center justify-center min-h-screen font-sans">
+
+    <div class="w-full max-w-md p-6">
+        <div class="text-center mb-10">
+            <div class="inline-block p-4 rounded-full bg-emerald-500/10 mb-4 border border-emerald-500/20">
+                <i class="fas fa-shield-halved text-4xl text-emerald-500"></i>
+            </div>
+            <h1 class="text-white text-3xl font-black tracking-tighter">SECURE<span class="text-emerald-500">CHECK</span></h1>
+            <p class="text-slate-500 text-sm uppercase tracking-widest mt-2">Sistema de Gestión de Personal</p>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+            <button onclick="marcar('Entrada')" class="flex flex-col items-center justify-center p-6 bg-slate-900 border border-slate-800 rounded-3xl hover:border-emerald-500/50 transition-all group">
+                <i class="fas fa-sign-in-alt text-3xl text-emerald-500 group-hover:scale-110 transition-transform"></i>
+                <span class="text-white mt-3 font-bold">ENTRADA</span>
+            </button>
+
+            <button onclick="marcar('Salida')" class="flex flex-col items-center justify-center p-6 bg-slate-900 border border-slate-800 rounded-3xl hover:border-red-500/50 transition-all group">
+                <i class="fas fa-sign-out-alt text-3xl text-red-500 group-hover:scale-110 transition-transform"></i>
+                <span class="text-white mt-3 font-bold">SALIDA</span>
+            </button>
+
+            <button onclick="marcar('Inicio Lunch')" class="flex flex-col items-center justify-center p-6 bg-slate-900 border border-slate-800 rounded-3xl hover:border-orange-500/50 transition-all group">
+                <i class="fas fa-utensils text-3xl text-orange-500 group-hover:scale-110 transition-transform"></i>
+                <span class="text-white mt-3 font-bold">LUNCH</span>
+            </button>
+
+            <button onclick="marcar('Fin Lunch')" class="flex flex-col items-center justify-center p-6 bg-slate-900 border border-slate-800 rounded-3xl hover:border-blue-500/50 transition-all group">
+                <i class="fas fa-briefcase text-3xl text-blue-500 group-hover:scale-110 transition-transform"></i>
+                <span class="text-white mt-3 font-bold">VOLVER</span>
+            </button>
+        </div>
+
+        <div id="status-bar" class="mt-8 p-4 rounded-2xl bg-slate-900/50 border border-slate-800 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div id="gps-indicator" class="w-3 h-3 rounded-full bg-red-500 animate-pulse"></div>
+                <span id="status-text" class="text-slate-400 text-xs font-mono uppercase">Esperando GPS...</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
