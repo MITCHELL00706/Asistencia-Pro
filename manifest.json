@@ -1,0 +1,15 @@
+{
+  "name": "SecureCheck Pro",
+  "short_name": "SecureCheck",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#10b981",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/2092/2092204.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
