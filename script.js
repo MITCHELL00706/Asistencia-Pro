@@ -64,4 +64,28 @@ function calcularDistancia(lat1, lon1, lat2, lon2) {
     const dLon = (lon2 - lon1) * Math.PI / 180;
     const a = Math.sin(dLat/2)**2 + Math.cos(lat1*Math.PI/180)*Math.cos(lat2*Math.PI/180)*Math.sin(dLon/2)**2;
     return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+
 }
+
+window.onload = () => {
+    if (navigator.geolocation) {
+        // Usamos watchPosition para que el GPS se mantenga "despierto"
+        navigator.geolocation.watchPosition(pos => {
+            ubicacionActual = { lat: pos.coords.latitude, lng: pos.coords.longitude };
+            const statusText = document.getElementById('status-text');
+            const indicator = document.getElementById('gps-indicator');
+            
+            if(statusText) statusText.innerText = "SISTEMA SEGURO Y CONECTADO";
+            if(indicator) {
+                indicator.style.backgroundColor = "#10b981"; // Cambia a verde
+            }
+        }, (err) => {
+            console.warn("Error de GPS:", err.message);
+            document.getElementById('status-text').innerText = "ERROR: ACTIVA EL GPS";
+        }, { 
+            enableHighAccuracy: true, // Forzamos precisión máxima
+            timeout: 10000,           // Espera 10 segundos antes de dar error
+            maximumAge: 0             // No usar ubicaciones viejas (caché)
+        });
+    }
+};
